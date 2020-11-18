@@ -1,0 +1,15 @@
+.mat-toolbar{
+    background-color: #0F4C75;
+}
+
+button{
+    margin-left: 10px;
+    height: 40px;
+    font-size: large;
+    background-color: #1a7dbe;
+    color: white;
+}
+
+.menubtns{
+    margin-left: 44%;
+}
