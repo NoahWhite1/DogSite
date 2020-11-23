@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 import { BreederService } from 'src/app/services/Breeder/breeder.service';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms//forms';
   styleUrls: ['./login-display.component.css']
 })
 export class LoginDisplayComponent implements OnInit {
-
+  @Output ("toggleLoginIcon") toggleLoginIcon: EventEmitter<any> = new EventEmitter;
   username:string = "";
   password:string = "";
   loginDisplay:boolean = false;
@@ -28,6 +28,7 @@ export class LoginDisplayComponent implements OnInit {
       this.username = "";
       this.password = "";
       this.loginDisplay = false;
+      this.toggleLoginIcon.emit();
     }
     else{
       this.snackBar.open("Invalid Credentials", "close", {
@@ -38,6 +39,10 @@ export class LoginDisplayComponent implements OnInit {
 
   displayLogin(){
     this.loginDisplay = !this.loginDisplay;
+  }
+
+  public get getLoginDisplay():boolean{
+    return this.loginDisplay;
   }
 
 }

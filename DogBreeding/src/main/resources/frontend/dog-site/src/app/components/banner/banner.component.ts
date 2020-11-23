@@ -11,25 +11,29 @@ export class BannerComponent implements OnInit {
 
   @ViewChild(LoginDisplayComponent)
   logindisplay:LoginDisplayComponent;
-  displayProfile:boolean = true;
+  displayProfile:boolean;
   constructor(private breederServ:BreederService) { }
 
   ngOnInit(): void {
   }
 
 
-  loginDisplay(){
+  async loginDisplay(){
     this.logindisplay.displayLogin();
+  }
 
-    console.log("attempting to open login" + this.breederServ.breeder);
+  async toggleLoginIcon(){
+    if(this.logindisplay.getLoginDisplay == false){
+      if(await this.breederServ.breeder[0] != undefined){
+      this.displayProfile = true;
+      this.ngOnInit();
+    }
+  }
  }
 
- toggleLoginIcon(){
-  if(this.breederServ.breeder !== undefined){
-    this.displayProfile = false;
-    console.log("removing profile icon");
-    this.ngOnInit();
-  }
+ logout(){
+   this.breederServ.breeder[0] = undefined;
+   this.displayProfile = false;
  }
 
 }

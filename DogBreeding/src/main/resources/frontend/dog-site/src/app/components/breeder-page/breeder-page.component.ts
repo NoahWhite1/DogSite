@@ -19,6 +19,5 @@ export class BreederPageComponent implements OnInit {
 
   async getAllBreeders(){
     this.breeders = await this.breederServ.getAllBreeders();
-    console.log("breeders" + this.breeders);
   }
 }
