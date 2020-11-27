@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 import { BreederService } from 'src/app/services/Breeder/breeder.service';
 import { FormsModule } from '@angular/forms//forms';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 @Component({
   selector: 'app-login-display',
   templateUrl: './login-display.component.html',
@@ -10,6 +11,7 @@ import { FormsModule } from '@angular/forms//forms';
 })
 export class LoginDisplayComponent implements OnInit {
   @Output ("toggleLoginIcon") toggleLoginIcon: EventEmitter<any> = new EventEmitter;
+  @Output ("toggleBreederLogin") toggleBreederLogin: EventEmitter<any> = new EventEmitter;
   username:string = "";
   password:string = "";
   loginDisplay:boolean = false;
@@ -29,6 +31,8 @@ export class LoginDisplayComponent implements OnInit {
       this.password = "";
       this.loginDisplay = false;
       this.toggleLoginIcon.emit();
+      this.breederServ.isSignedIn = true;
+      this.toggleBreederLogin.emit();
     }
     else{
       this.snackBar.open("Invalid Credentials", "close", {

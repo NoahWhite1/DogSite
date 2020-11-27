@@ -9,6 +9,7 @@ export class BreederService {
 
   breeder:Breeder;
   url:string = `http://localhost:8080`;
+  isSignedIn:boolean = false;
 
   constructor(private http:HttpClient) { }
 

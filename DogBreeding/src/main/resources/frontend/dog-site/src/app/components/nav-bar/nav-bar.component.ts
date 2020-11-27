@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild,AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 import { BreederService } from 'src/app/services/Breeder/breeder.service';
@@ -15,10 +15,17 @@ export class NavBarComponent implements OnInit {
   loginDisplayComponent:LoginDisplayComponent;
   @ViewChild(CreatePuppyDisplayComponent)
   addPuppyDisplay:CreatePuppyDisplayComponent;
-  isSignedIn:boolean = false;
-  constructor(private router:Router) { }
+  isSignedIn:boolean;
+  constructor(private router:Router,private breederServ:BreederService) { }
 
-  ngOnInit(): void {
+   ngOnInit() {
+     if(this.isSignedIn != this.breederServ.isSignedIn){
+      this.isSignedIn = this.breederServ.isSignedIn;
+    }
+  }
+
+  toggleBreederLogin(){
+    this.ngOnInit();
   }
 
   homePage(){
@@ -35,9 +42,5 @@ export class NavBarComponent implements OnInit {
 
   get getSignedIn(){
     return this.isSignedIn;
-  }
-
-  set setSignedIn(value:boolean){
-    this.isSignedIn = value;
   }
 }
