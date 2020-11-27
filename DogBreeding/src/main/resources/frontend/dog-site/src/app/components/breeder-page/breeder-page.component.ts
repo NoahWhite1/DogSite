@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 import { BreederService } from 'src/app/services/Breeder/breeder.service';
 
+
 @Component({
   selector: 'app-breeder-page',
   templateUrl: './breeder-page.component.html',

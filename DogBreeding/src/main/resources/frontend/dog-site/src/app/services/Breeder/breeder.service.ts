@@ -27,4 +27,7 @@ export class BreederService {
     return breeder;
   }
   
+  get loggedBreeder(){
+    return this.breeder;
+  }
 }

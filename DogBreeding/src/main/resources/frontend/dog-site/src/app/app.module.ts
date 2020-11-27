@@ -25,6 +25,8 @@ import { CreatePuppyDisplayComponent } from './components/create-puppy-display/c
 import { LoginDisplayComponent } from './components/login-display/login-display.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+import { BreederInformationPageComponent } from './components/breeder-information-page/breeder-information-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     HomePageCarouselComponent,
     BreederCardComponent,
     CreatePuppyDisplayComponent,
-    LoginDisplayComponent
+    LoginDisplayComponent,
+    BreederInformationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [BreederService,DogService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Dog } from 'src/app/Modules/dog/dog.module';
 import { BreederService } from 'src/app/services/Breeder/breeder.service';
 import { DogService } from 'src/app/services/Dog/dog.service';
+import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 
 @Component({
   selector: 'app-home-page',
@@ -12,6 +13,8 @@ export class HomePageComponent implements OnInit {
 
   dogs:Array<Dog> = [];
   dog:Dog;
+  breeder:Breeder = null;
+
   constructor(private dogServ:DogService) { }
 
 

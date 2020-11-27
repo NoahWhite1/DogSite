@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
 import { Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breeder-card',
@@ -13,10 +14,14 @@ export class BreederCardComponent implements OnInit {
   @Input("breeder") breeder:Breeder;
   breederCard:Breeder;
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
     this.breederCard = this.breeder;
   }
 
+
+  breederInfo(){
+    this.router.navigate(["/breeder"]);
+  }
 }
