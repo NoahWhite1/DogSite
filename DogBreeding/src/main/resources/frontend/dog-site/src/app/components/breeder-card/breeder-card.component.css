@@ -1,7 +1,10 @@
 .breederCard{
     margin-top: 20px;
     margin-left: 20px;
+    min-width: 300px;
     max-width: 300px;
+    min-height: 200px;
+    max-height: 200px;
     float: left;
     border-style: solid;
     border-color: rgb(153, 153, 153);
@@ -13,15 +16,19 @@
 }
 
 img{
-    max-height: 400px;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    border-style: solid;
+    margin-left: 50px;
 }
 
 .breederCardTitle{
     color: black;
-    margin-left: 100px;
+    margin-left: 115px;
 }
 
 .breederCardSubTitle{
     color: rgb(94, 92, 92);
-    margin-left: 80px;
+    margin-left: 110px;
 }

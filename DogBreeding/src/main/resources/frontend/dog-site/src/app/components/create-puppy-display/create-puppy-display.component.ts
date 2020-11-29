@@ -31,14 +31,22 @@ export class CreatePuppyDisplayComponent implements OnInit {
   }
 
   createDog(){
-    this.newDog.name = this.name;
-    this.newDog.breed = this.breed;
-    this.newDog.age = this.age;
-    this.newDog.mother = this.mother;
-    this.newDog.father = this.father;
-    this.newDog.breeder = this.breederServ.breeder;
-    this.newDog.dId = 0;
-    this.toggleDisplay();
+
+    let newDog = {
+      "name" : this.name,
+      "breed" : this.breed,
+      "age" : this.age,
+      "mother" : this.mother,
+      "father" : this.father,
+      "breeder" : this.breederServ.breeder[0],
+      "dId" : 0,
+    }
+    this.breederServ.addDog(newDog);
     console.log(this.newDog);
+    console.log(this.breederServ.breeder);
+
+    
+    this.toggleDisplay();
+    
   }
 }

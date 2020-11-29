@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Breeder } from 'src/app/Modules/breeder/breeder.module';
+import { Dog } from 'src/app/Modules/dog/dog.module';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,11 @@ export class BreederService {
   isSignedIn:boolean = false;
 
   constructor(private http:HttpClient) { }
+
+  async addDog(dog:Dog):Promise<Dog>{
+    dog = await this.http.post<Dog>(this.url + `/dogs`,dog).toPromise();
+    return dog;
+  }
 
   async getAllBreeders():Promise<Array<Breeder>>{
     const breeders:Array<Breeder> = await this.http.get<Array<Breeder>>(this.url + `/breeders`).toPromise();
